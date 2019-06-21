@@ -62,6 +62,15 @@ BORDER_MIN_COUNT = 4
 
 ROAD_COLOR = [0.4, 0.4, 0.4]
 
+
+def preprocess_observation(observation):
+
+    I = observation[0:80]  # crop
+    I = 0.2989 * I[:,:,0] + 0.5879 * I[:,:,1] + 0.1140 * I[:,:,2] # Grey Image
+    I = I[::2, ::2]  # down sample by factor of 2
+    
+    return I.astype(np.float32)[..., np.newaxis]
+
 class FrictionDetector(contactListener):
     def __init__(self, env):
         contactListener.__init__(self)
@@ -119,7 +128,7 @@ class CarRacing2(gym.Env, EzPickle):
         self.verbose = verbose
 
         self.action_space = spaces.Box( np.array([-1,0,0]), np.array([+1,+1,+1]), dtype=np.float32)  # steer, gas, brake
-        self.observation_space = spaces.Box(low=0, high=255, shape=(STATE_H, STATE_W, 1), dtype=np.uint8)
+        self.observation_space = spaces.Box(low=0, high=255, shape=(40,48, 1), dtype=np.uint8)
 
     def seed(self, seed=None):
         self.np_random, seed = seeding.np_random(seed)
@@ -305,7 +314,7 @@ class CarRacing2(gym.Env, EzPickle):
         self.t += 1.0/FPS
 
         self.state = self.render("state_pixels")
-        self.state = 0.2989*self.state[:,:,0] + 0.5879 * self.state[:,:,1] + 0.1140 * self.state[:,:,2]
+        self.state = preprocess_observation(self.state)
         self.state = np.expand_dims(self.state,axis=-1)
         step_reward = 0
         done = False
