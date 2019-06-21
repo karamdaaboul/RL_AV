@@ -315,7 +315,6 @@ class CarRacing2(gym.Env, EzPickle):
 
         self.state = self.render("state_pixels")
         self.state = preprocess_observation(self.state)
-        self.state = np.expand_dims(self.state,axis=-1)
         step_reward = 0
         done = False
         if action is not None: # First step without action, called from reset()
