@@ -1,8 +1,8 @@
 # RL_AV
+If you are curious about reinforcement learning, you might find some information that is useful for you.
 
 ## Clone the Repo:
-
-Run in terminal:
+Run in terminal:  
 `mkdir ~/no_backup`  
 `cd ~/no_backup`      
 `git clone https://github.com/kaya2016/RL_AV.git`      
