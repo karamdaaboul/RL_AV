@@ -11,3 +11,5 @@ ipykernel>=5.1.1
 jupyter>=1.0.0
 box2d-py>=2.3.8
 stable-baselines>=2.7.0
+optuna>=0.14.0 
+scikit-optimize>00.5.2

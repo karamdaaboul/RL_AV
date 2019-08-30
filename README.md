@@ -2,14 +2,14 @@
 
 ## Clone the Repo:
 
-Run in terminal:  
-`cd ~/no_backup`    
+Run in terminal:
+`mkdir ~/no_backup`  
+`cd ~/no_backup`      
 `git clone https://github.com/kaya2016/RL_AV.git`      
-`jupyter notebook`      
-
 
 ## Create a Virtual Environment
 First, we create a virtual environment where we want to put all the required packages. 
+
 1. Create a Python 3 virtual environment  
 `virtualenv ~/no_backup/venv_ml -p python3.5`
 
