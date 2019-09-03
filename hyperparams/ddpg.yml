@@ -1,0 +1,13 @@
+MountainCarContinuous-v0:
+   total_timesteps: 150000
+   policy: 'MlpPolicy'
+   noise_type: 'ornstein-uhlenbeck'
+   noise_std: 0.5440552704770357
+   buffer_size: 30000
+   batch_size: 32
+   nb_rollout_steps: 150
+   nb_train_steps: 50
+   gamma: 0.9999
+   actor_lr: 0.000945023351479731
+   critic_lr: 0.000945023351479731
+ 
